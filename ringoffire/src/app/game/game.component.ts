@@ -10,13 +10,13 @@ import { Game } from '../../models/game';
 })
 export class GameComponent {
   pickCardAnimation = false;
-  currentCard: string = '';
+  currentCard: string | undefined = ''; 
   game: Game;
 
   cards = [0, 1, 2, 3];
 
   constructor() {
-    this.game = new Game();
+    this.game = new Game()
   }
 
   // newGame() {
@@ -25,15 +25,16 @@ export class GameComponent {
   // }
 
   takeCard() {
-    if (!this.pickCardAnimation) {
-      if (this.game.stack.length > 0) {
-        this.currentCard = this.game.stack.pop()!;
-      }
-      this.pickCardAnimation = true;
-      this.game.playedCards.push(this.currentCard);
-      setTimeout(() => {
-        this.pickCardAnimation = false;
-      }, 1500);
-    }
+    if (!this.pickCardAnimation){
+    this.currentCard = this.game.stack.pop();
+    this.pickCardAnimation = true;
+      
+      console.log(this.game.stack);
+      console.log(this.game.playedCards);
+    setTimeout(() => {
+      this.game.playedCards.push(this.currentCard!);
+      this.pickCardAnimation = false;
+    }, 1000);
+  }
   }
 }

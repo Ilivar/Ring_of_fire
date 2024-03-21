@@ -1,12 +1,15 @@
 <div class="field">
   <div class="card-stack">
+    <!-- Card Stack -->
     @for(card of cards; let index = $index; track index ){
-    <img (click)="takeCard()"
+    <img
+      (click)="takeCard()"
       [style.right.px]="index * 5"
       src="./../../assets/img/cards/card_cover.png"
       alt=""
     />
     }
+    <!-- Top Card -->
     <img
       (click)="takeCard()"
       [class.pick-card]="pickCardAnimation"
@@ -15,13 +18,20 @@
       src="./../../assets/img/cards/card_cover.png"
       alt=""
     />
+    <!-- Stack of played cards -->
+    @for(card of game.playedCards; let index = $index; track index ){
+    <img
+      class="played-card"
+      src="./../../assets/img/cards/{{ card }}.png"
+      alt=""
+    />
+    <!-- Current card with animation -->
     @if(pickCardAnimation){
     <img
-      
       class="pick-card"
       style="right: 25px"
       src="./../../assets/img/cards/{{ currentCard }}.png"
       alt=""
-    />}
+    />} }
   </div>
 </div>
