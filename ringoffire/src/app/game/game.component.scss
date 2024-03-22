@@ -1,3 +1,7 @@
+*{
+    color: white;
+}
+
 .field{
     height: 100vh;
     width: 100vw;
@@ -61,4 +65,11 @@
     right: 32px;
     bottom: 32px;
     background-color: purple;
+}
+
+.pin-bottom{
+position: absolute;
+bottom: 32px;
+left: 100px;
+right: 100px;  
 }
